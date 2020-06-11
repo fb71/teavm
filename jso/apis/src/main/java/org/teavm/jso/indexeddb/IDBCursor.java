@@ -15,6 +15,7 @@
  */
 package org.teavm.jso.indexeddb;
 
+import org.teavm.jso.JSBody;
 import org.teavm.jso.JSMethod;
 import org.teavm.jso.JSObject;
 import org.teavm.jso.JSProperty;
@@ -51,4 +52,15 @@ public interface IDBCursor extends JSObject {
     void doContinue();
 
     IDBRequest delete();
+    
+    /**
+     * This method is used by success handlers of an {@link IDBCursorRequest} to
+     * check if the cursor has another value.
+     *
+     * @return True signals that the next invocation of {@link #getValue()} returns a
+     *         valid value.
+     */
+    @JSBody(script = "return this === null;")
+    boolean isNull();
+
 }

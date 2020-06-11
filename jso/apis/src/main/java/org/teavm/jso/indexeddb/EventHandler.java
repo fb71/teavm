@@ -17,8 +17,9 @@ package org.teavm.jso.indexeddb;
 
 import org.teavm.jso.JSFunctor;
 import org.teavm.jso.JSObject;
+import org.teavm.jso.dom.events.Event;
 
 @JSFunctor
 public interface EventHandler extends JSObject {
-    void handleEvent();
+    void handleEvent(Event ev);
 }
